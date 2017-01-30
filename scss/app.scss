@@ -1,0 +1,358 @@
+@charset 'utf-8';
+@import 'settings';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+body{
+  background:#fafafa;
+  font-family: $latoRegular;
+  padding:25px;
+  -webkit-box-shadow: inset 0px 0px 0px 25px rgba(54,54,54,1);
+  -moz-box-shadow: inset 0px 0px 0px 25px rgba(54,54,54,1);
+  box-shadow: inset 0px 0px 0px 25px rgba(54,54,54,1);
+  padding-top:300px;
+}
+.button{
+  background:transparent;
+  border:1px solid $darkText;
+  padding:12px 25px;
+  color: $darkText;
+  font-family: $latoBold;
+  font-weight: 600;
+  letter-spacing: 1px;
+  @include transition;
+  @include fontsize(16);
+  &:hover{
+  border:1px solid $primaryRed;
+    background:$primaryRed;
+    color: #fff;
+  }
+}
+header{
+  padding:20px 0;
+  text-align: center;
+  position:absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding:70px 0 0 0;
+  overflow:hidden;
+  height: 282px;
+  &:before{
+    content:"";
+    display: block;
+    position:absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 115vw 0 0;
+    border-color: $darkText transparent transparent transparent;
+    @include transition;
+  }
+
+  &.active{
+    padding:25px 0 0 0;
+    position:fixed;
+    z-index: 50;
+    &:before{
+        border-width: 250px 115vw 0 0;
+    }
+    .content{
+      position:relative;
+      padding:0 25px;
+      z-index: 10;
+      display: flex;
+      align-items:center;
+      justify-content: flex-start;
+    }
+    .logo{
+        margin: initial;
+        svg{
+          .st0{
+            fill:#fff;
+          }
+          .st1{
+            fill:#fafafa;
+          }
+        }
+    }//logo
+    h1, ul a{
+      color:#fafafa;
+    }
+    ul {
+      padding-left:20px;
+      li{
+        padding:12px;
+      }
+    }
+  }//end active
+  h1{
+      font-family: $calluna;
+      color:$darkText;
+  }
+  nav{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+  ul{
+    margin:0;
+    list-style: none;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    li{
+      padding:12px 25px;
+      font-family: $latoRegular;
+    }
+    a{
+      color:$darkText;
+      @include transition;
+      &:hover{
+        color:$primaryRed;
+      }
+    }
+  }
+  .logo{
+    width: 80px;
+    margin:0 auto;
+    svg{
+      .st0{
+        fill:#2D2D2D;
+      }
+      .st1{
+        fill:#565656;
+      }
+    }//end svg
+  }//end logo
+}
+.socialIcons{
+  a{
+    margin-right: 10px;
+    svg{
+      width: 20px;
+      fill:$darkText;
+      height: 20px;
+      @include transition;
+    }
+    &:hover{
+      svg{fill:$primaryRed}
+    }
+  }
+}
+.splash{
+  padding:50px 0 100px 0;
+}
+.cardList{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding:50px 0;
+  .cardItem{
+    background: #fff;
+    max-width: 320px;
+    min-height: 550px;
+    padding:30px;
+    border-radius: 6px;
+    text-align:center;
+    box-shadow: -2px 7px 22px -2px rgba(168,168,168,1);
+    position: relative;
+    &:before{
+      content: "";
+      position:absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin:auto;
+      display: block;
+      box-shadow: inset -2px 7px 87px -2px rgba(156,156,156,0.2);
+
+    }
+    .content{
+      position:relative;
+      margin:30px auto;
+    }
+    h1{
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+      font-family: $latoBold;
+      color:$primaryRed;
+    }
+    .imgWrapper{
+      display: block;
+      max-width: 300px;
+      height: auto;
+      margin:auto auto 20px auto;
+    }
+    span{
+      display: block;
+      font-family: $latoBold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    p{
+      font-family: $latoLight;
+      letter-spacing: 0.5px;
+      @include fontsize(14);
+    }
+    ul{
+      list-style:none;
+      margin:0;
+      li{
+        display: inline-block;
+        background: $lightgray;
+        width: 8px;
+        height: 8px;
+        border-radius:100%;
+        margin:0 5px;
+        &.active{
+          background: $primaryRed;
+        }
+      }
+    }
+  }
+}
+.contactMessage{
+  color:$darkText;
+  @include transition;
+  padding:15px 0;
+  display: block;
+  font-family: $latoBold;
+  letter-spacing: 1px;
+  &:hover{
+    color:$primaryRed;
+  }
+}
+.photoSection{
+  overflow:hidden;
+  position:absolute;
+  height: 100%;
+  width: 50%;
+  display: block;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background-size:cover;
+  &:before{
+      content:"";
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      position: absolute;
+      z-index: 2;
+  }
+  img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+
+  }
+}
+.welcome{
+  position:relative;
+  overflow:hidden;
+  padding:200px 0;
+  .content{
+    background:transparentize(#fff, 0.2);
+    padding:50px;
+    position:relative;
+    z-index: 2;
+  }
+  h2{
+    font-family: $calluna;
+    @include fontsize(36);
+    b{
+      color:$primaryRed;
+    }
+  }
+  p{
+    font-family: $latoLight;
+    margin-bottom: 30px;
+  }
+  .socialIcons{
+    margin-bottom: 10px;
+    position:absolute;
+    top: 70px;
+    right: 50px;
+  }
+  .photoSection{
+    left: 0;
+    background:url(https://i.ytimg.com/vi/BCr7y4SLhck/maxresdefault.jpg) no-repeat center;
+    &:before{
+      border-color: transparent transparent #fafafa transparent;
+      right: 0;
+      border-width: 0 0 1040px 100px;
+    }
+  }
+}
+.quote{
+  padding:200px 0;
+  text-align: center;
+  background:url(../img/jobs-red.png) no-repeat center right;
+  background-size: auto 100%;
+  p{
+    @include fontsize(36);
+    max-width: 800px;
+    margin:0 auto;
+    color:$darkText;
+  }
+  .author{
+    @include fontsize(24);
+    color:transparentize($darkText, 0.3);
+  }
+}
+.jobs{
+  padding:150px 0;
+  position:relative;
+  overflow:hidden;
+  &.agrosmart{
+    .content{border-left:4px solid #57a93d}
+  }
+  .content{
+    background:transparentize(#fff, 0.2);
+    padding:50px;
+    position:relative;
+    z-index: 2;
+    h1{
+      font-family: $calluna;
+      @include fontsize(36);
+      b{
+        color:$primaryRed;
+      }
+    }
+
+    h3{
+      @include fontsize(16);
+      font-family: $latoBold;
+      span{
+        width: 4px;
+        height: 4px;
+        background:$primaryRed;
+        border-radius:100%;
+        display: inline-block;
+        margin:5px 5px;
+      }
+    }
+    p{
+      margin-bottom: 50px;
+      font-family:$latoLight;
+    }
+  }
+  .photoSection{
+    right: 0;
+    &:before{
+      border-width: 0 0 1070px  100px;
+      border-color:  transparent  transparent transparent #fafafa;
+    }
+  }
+}
